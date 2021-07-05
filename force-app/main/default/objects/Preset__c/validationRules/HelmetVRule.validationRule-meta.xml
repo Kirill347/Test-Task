@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HelmetVRule</fullName>
+    <active>true</active>
+    <errorConditionFormula>!ISPICKVAL( Helmet__r.Type__c , &apos;Helmet&apos;) &amp;&amp; Helmet__c != &apos;&apos;</errorConditionFormula>
+    <errorMessage>Helmet is required</errorMessage>
+</ValidationRule>

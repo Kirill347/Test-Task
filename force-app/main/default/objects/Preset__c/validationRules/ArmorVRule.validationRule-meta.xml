@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ArmorVRule</fullName>
+    <active>true</active>
+    <errorConditionFormula>!ISPICKVAL(Armor_Chest__r.Type__c, &apos;Chest Armor&apos;) &amp;&amp;  Armor_Chest__c!=&apos;&apos;</errorConditionFormula>
+    <errorDisplayField>Armor_Chest__c</errorDisplayField>
+    <errorMessage>Chest Armor is required</errorMessage>
+</ValidationRule>

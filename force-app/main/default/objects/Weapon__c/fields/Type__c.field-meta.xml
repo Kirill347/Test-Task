@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>One-Handed</fullName>
+                <default>true</default>
+                <label>One-Handed</label>
+            </value>
+            <value>
+                <fullName>Two-Handed</fullName>
+                <default>false</default>
+                <label>Two-Handed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

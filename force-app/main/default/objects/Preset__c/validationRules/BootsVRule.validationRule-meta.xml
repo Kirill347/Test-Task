@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BootsVRule</fullName>
+    <active>true</active>
+    <errorConditionFormula>!ISPICKVAL( Boots__r.Type__c , &apos;Boots&apos;) &amp;&amp;  Boots__c!=&apos;&apos;</errorConditionFormula>
+    <errorDisplayField>Boots__c</errorDisplayField>
+    <errorMessage>Boots are required</errorMessage>
+</ValidationRule>

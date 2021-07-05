@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TwoHandedWeaponVRule</fullName>
+    <active>true</active>
+    <errorConditionFormula>(ISPICKVAL(Weapon1__r.Type__c, &apos;Two-Handed&apos;) &amp;&amp; Weapon2__c !=&apos;&apos;)
+|| (ISPICKVAL(Weapon2__r.Type__c, &apos;Two-Handed&apos;) &amp;&amp; Weapon1__c !=&apos;&apos;)</errorConditionFormula>
+    <errorMessage>Only one Two-Handed Weapon</errorMessage>
+</ValidationRule>

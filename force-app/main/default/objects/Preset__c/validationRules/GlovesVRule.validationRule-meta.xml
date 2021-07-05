@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GlovesVRule</fullName>
+    <active>true</active>
+    <errorConditionFormula>!ISPICKVAL(Gloves__r.Type__c, &apos;Gloves&apos;) &amp;&amp; Gloves__c != &apos;&apos;</errorConditionFormula>
+    <errorDisplayField>Gloves__c</errorDisplayField>
+    <errorMessage>Gloves are required</errorMessage>
+</ValidationRule>
