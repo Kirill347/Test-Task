@@ -6,6 +6,7 @@ import getConsumables from '@salesforce/apex/ItemDataService.getConsumables';
 import getOtherItems from '@salesforce/apex/ItemDataService.getOtherItems';
 import ItemMC from '@salesforce/messageChannel/ItemMessageChannel__c';
 import { publish, MessageContext } from 'lightning/messageService';
+import RING1 from '@salesforce/schema/Armor__c';
 const ARMOR = 'ARMOR'
 const WEAPON = 'WEAPON'
 const CONSUMABLE = 'CONSUMABLE'
