@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is a presets Lightning Message Channel.</description>
+    <isExposed>true</isExposed>
+    <lightningMessageFields>
+        <fieldName>presetItem</fieldName>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>type</fieldName>
+    </lightningMessageFields>        
+    <masterLabel>SampleMessageChannel</masterLabel>
+</LightningMessageChannel>
