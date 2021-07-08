@@ -1,22 +1,22 @@
 <template>
-    <lightning-card>
+    <lightning-card class="main-card" title={item.Name}>
         <template if:true={isArmor}>
             <div class="main">
-                <h1 class="slds-text-heading_medium">{item.Name}</h1>
-                <p>{item.Type__c}</p>
+                <h1 class="slds-text-heading_large"></h1>
+                <p class="slds-text-heading_medium">{item.Type__c}</p>
                 </br>
-                <p class="slds-text-heading_medium" style="color:rgb(90, 6, 6)"><b>Physical Protection: {item.Physical_protection__c}</b></p>
-                <p class="slds-text-heading_medium" style="color:rgb(56, 6, 90)"><b>Magical Protection: {item.Magical_protection__c}</b></p>
+                <p class="slds-text-heading_medium" style="color:rgb(90, 6, 6); font-style: oblique 40deg;"><b>Physical Protection: {item.Physical_protection__c}</b></p>
+                <p class="slds-text-heading_medium" style="color:rgb(56, 6, 90); font-style: oblique 40deg;"><b>Magical Protection: {item.Magical_protection__c}</b></p>
                 </br>
-                <p>Description: {item.Description__c}</p>
+                <p style="font-size:14px; font-style: oblique;">Description: {item.Description__c}</p>
                 </br>
                 <p style="color:rgb(51, 50, 50)"><b>Weight: {item.Weight__c}</b></p>
             </div>
         </template>
         <template if:true={isWeapon}>
             <div class="main">
-                <h1 class="slds-text-heading_medium">{item.Name}</h1>
-                <p>{item.Type__c}</p>
+                <h1 class="slds-text-heading_large">{item.Name}</h1>
+                <p class="slds-text-heading_medium">{item.Type__c}</p>
                 </br>
                 <p class="slds-text-heading_medium" style="color:rgb(90, 6, 6)"><b>Physical Damage: {item.Physical_Damage__c}</b></p>
                 <p class="slds-text-heading_medium" style="color:rgb(192, 81, 37)"><b>Fire Damage: {item.Fire_Damage__c}</b></p>
@@ -31,7 +31,7 @@
         </template>
         <template if:true={isConsumable}>
             <div class="main">
-                <h1 class="slds-text-heading_medium">{item.Name}</h1>
+                <h1 class="slds-text-heading_large">{item.Name}</h1>
                 </br>
                 <p class="slds-text-heading_medium" style="color:rgb(32, 8, 63)"><b>Effect: {item.Effect__c}</b></p>
                 </br>
@@ -42,7 +42,7 @@
         </template>
         <template if:true={isJewellery}>
             <div class="main">
-                <h1 class="slds-text-heading_medium">{item.Name}</h1>
+                <h1 class="slds-text-heading_large">{item.Name}</h1>
                 </br>
                 <p class="slds-text-heading_medium" style="color:rgb(56, 6, 90)"><b>Magical Protection: {item.Magical_Protection__c}</b></p>
                 </br>
@@ -53,7 +53,7 @@
         </template>
         <template if:true={isOther}>
             <div class="main">
-                <h1 class="slds-text-heading_medium">{item.Name}</h1>
+                <h1 class="slds-text-heading_large">{item.Name}</h1>
                 </br>
                 <p>Description: {item.Description__c}</p>
                 </br>

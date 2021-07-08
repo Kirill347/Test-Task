@@ -1,49 +1,45 @@
 <template>
     <lightning-tabset variant="scoped">
         <template for:each={presets.data} for:item="preset">
-            <lightning-tab key={preset.Id} label={preset.Name} onactive={handleTabClick} value={preset.Id}>
+            <lightning-tab class="presetTab" key={preset.Id} label={preset.Name} onactive={handleTabClick} value={preset.Id}>
                 <div class="slds-scrollable_y">
                     <lightning-layout multiple-rows="true">
-                        <lightning-layout-item size="3">
-                            </br></br></br></br></br></br></br>
-                            <span style="text-align: center;">Gloves</span>
-                            <c-item-tile selected-item-id={selectedItem} item={preset.Gloves__r}
-                            onitemselect={updateSelectedTile} type={constants.armor}></c-item-tile>
-                        </lightning-layout-item>
-                            <lightning-layout-item size="3">
+                            <lightning-layout-item class = "presetGloves">
+                                Gloves
+                                <c-item-tile selected-item-id={selectedItem} item={preset.Gloves__r}
+                                onitemselect={updateSelectedTile} type={constants.armor} is-preset-item="true"></c-item-tile>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="2" class = "presetItems">
                                 Helmet
                                 <c-item-tile selected-item-id={selectedItem} item={preset.Helmet__r}
-                                onitemselect={updateSelectedTile} type={constants.armor}></c-item-tile>
+                                onitemselect={updateSelectedTile} type={constants.armor} is-preset-item="true"></c-item-tile>
                                 Armor Chest
                                 <c-item-tile selected-item-id={selectedItem} item={preset.Armor_Chest__r}
-                                onitemselect={updateSelectedTile} type={constants.armor}></c-item-tile>
+                                onitemselect={updateSelectedTile} type={constants.armor} is-preset-item="true"></c-item-tile>
                                 Trousers
                                 <c-item-tile selected-item-id={selectedItem} item={preset.Trousers__r}
-                                onitemselect={updateSelectedTile} type={constants.armor}></c-item-tile>
+                                onitemselect={updateSelectedTile} type={constants.armor} is-preset-item="true"></c-item-tile>
                                 Boots
                                 <c-item-tile selected-item-id={selectedItem} item={preset.Boots__r}
-                                onitemselect={updateSelectedTile} type={constants.armor}></c-item-tile>
+                                onitemselect={updateSelectedTile} type={constants.armor} is-preset-item="true"></c-item-tile>
                             </lightning-layout-item>
-                            <lightning-layout-item size="2">
+                            <lightning-layout-item size="2" class = "presetItems">
                                 Ring 1
                                 <c-item-tile selected-item-id={selectedItem} item={preset.Ring1__r}
-                                onitemselect={updateSelectedTile} type={constants.jewellery}></c-item-tile>
-                            </lightning-layout-item>
-                            <lightning-layout-item size="2">
-                                Ring 2
-                                <c-item-tile selected-item-id={selectedItem} item={preset.Ring2__r}
-                                onitemselect={updateSelectedTile} type={constants.jewellery}></c-item-tile>
-                            </lightning-layout-item>
-                            <lightning-layout-item size="3">
+                                onitemselect={updateSelectedTile} type={constants.jewellery} is-preset-item="true"></c-item-tile>
                                 Weapon 1
                                 <c-item-tile selected-item-id={selectedItem} item={preset.Weapon1__r}
-                                onitemselect={updateSelectedTile} type={constants.weapon}></c-item-tile>
+                                onitemselect={updateSelectedTile} type={constants.weapon} is-preset-item="true"></c-item-tile>
                             </lightning-layout-item>
-                            <lightning-layout-item size="3">
+                            <lightning-layout-item size="2" class = "presetItems">
+                                Ring 2
+                                <c-item-tile selected-item-id={selectedItem} item={preset.Ring2__r}
+                                onitemselect={updateSelectedTile} type={constants.jewellery} is-preset-item="true"></c-item-tile>
                                 Weapon 2
                                 <c-item-tile selected-item-id={selectedItem} item={preset.Weapon2__r}
-                                onitemselect={updateSelectedTile} type={constants.weapon}></c-item-tile>
+                                onitemselect={updateSelectedTile} type={constants.weapon} is-preset-item="true"></c-item-tile>
                             </lightning-layout-item>
+                                
                     </lightning-layout>
                 </div>
             </lightning-tab>

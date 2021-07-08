@@ -1,5 +1,8 @@
 import { LightningElement, api, wire } from 'lwc';
 const TILE_WRAPPER_UNSELECTED_CLASS = "tile-wrapper";
+const PRESET_TILE_WRAPPER_UNSELECTED_CLASS = "preset-tile-wrapper";
+const PRESET_ITEM_CLASS = "preset-tile";
+const ITEM_CLASS = "tile";
 import { publish, MessageContext } from 'lightning/messageService';
 import PresetsMC from '@salesforce/messageChannel/PresetsMC__c';
 export default class ItemTile extends LightningElement {
@@ -8,6 +11,9 @@ export default class ItemTile extends LightningElement {
 
   @api
   type;
+
+  @api
+  isPresetItem;
 
   @api
   selectedItemId;
@@ -25,7 +31,11 @@ export default class ItemTile extends LightningElement {
   }
 
   get tileClass() {
-    return TILE_WRAPPER_UNSELECTED_CLASS;
+    return this.isPresetItem ? PRESET_TILE_WRAPPER_UNSELECTED_CLASS : TILE_WRAPPER_UNSELECTED_CLASS;
+  }
+
+  get imageClass(){
+    return this.isPresetItem ? PRESET_ITEM_CLASS : ITEM_CLASS;
   }
 
   // Fires event with the Id of the boat that has been selected.

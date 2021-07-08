@@ -1,6 +1,6 @@
 <template>
     <lightning-tabset variant="scoped">
-      <lightning-tab label={constants.armor}>
+      <lightning-tab label={constants.armor} class="grid-tab">
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={armor.data} for:item="armorItem">
@@ -11,7 +11,7 @@
             </lightning-layout>
           </div>
       </lightning-tab>
-      <lightning-tab label="Weapons">
+      <lightning-tab label="Weapons" class="grid-tab">
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={weapons.data} for:item="weapon">
@@ -22,7 +22,7 @@
             </lightning-layout>
           </div>
       </lightning-tab>
-      <lightning-tab label="Consumables">
+      <lightning-tab label="Consumables" class="grid-tab">
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={consumables.data} for:item="consumable">
@@ -33,7 +33,7 @@
             </lightning-layout>
           </div>
       </lightning-tab>
-      <lightning-tab label="Jewellery">
+      <lightning-tab label="Jewellery" class="grid-tab">
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={jewellery.data} for:item="jewelleryItem">
@@ -44,7 +44,7 @@
             </lightning-layout>
           </div>
       </lightning-tab>
-      <lightning-tab label="Other Items">
+      <lightning-tab label="Other Items" class="grid-tab">
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={otherItems.data} for:item="otherItem">
