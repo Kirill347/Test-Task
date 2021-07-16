@@ -1,17 +1,17 @@
 <template>
-    <lightning-tabset variant="scoped">
-      <lightning-tab label={constants.armor} class="grid-tab">
+    <lightning-tabset variant="scoped" active-tab-value={activetabContent}>
+      <lightning-tab label={constants.armor} class="grid-tab" value={constants.armor} onactive={tabChangeHandler}> 
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={armor.data} for:item="armorItem">
-                <lightning-layout-item key={armorItem.Id} size="1">
-                   <c-item-tile selected-item-id={selectedItem} item={armorItem} onitemselect={updateSelectedTile} type={constants.armor}></c-item-tile>
+                <lightning-layout-item title={armorItem.Name} key={armorItem.Id} size="2" medium-device-size="2" large-device-size="1">
+                  <c-item-tile selected-item-id={selectedItem} item={armorItem} onitemselect={updateSelectedTile} type={constants.armor}></c-item-tile>
                 </lightning-layout-item>
               </template>
             </lightning-layout>
           </div>
       </lightning-tab>
-      <lightning-tab label="Weapons" class="grid-tab">
+      <lightning-tab label={constants.weapon} class="grid-tab" value={constants.weapon} onactive={tabChangeHandler}>
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={weapons.data} for:item="weapon">
@@ -22,7 +22,7 @@
             </lightning-layout>
           </div>
       </lightning-tab>
-      <lightning-tab label="Consumables" class="grid-tab">
+      <lightning-tab label={constants.consumable} class="grid-tab" value={constants.consumable} onactive={tabChangeHandler}>
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={consumables.data} for:item="consumable">
@@ -33,7 +33,7 @@
             </lightning-layout>
           </div>
       </lightning-tab>
-      <lightning-tab label="Jewellery" class="grid-tab">
+      <lightning-tab label={constants.jewellery} class="grid-tab" value={constants.jewellery} onactive={tabChangeHandler}>
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={jewellery.data} for:item="jewelleryItem">
@@ -44,7 +44,7 @@
             </lightning-layout>
           </div>
       </lightning-tab>
-      <lightning-tab label="Other Items" class="grid-tab">
+      <lightning-tab label={constants.other} class="grid-tab" value={constants.other} onactive={tabChangeHandler}>
         <div class="slds-scrollable_y">
             <lightning-layout multiple-rows="true">
               <template for:each={otherItems.data} for:item="otherItem">
@@ -56,4 +56,9 @@
           </div>
       </lightning-tab>
     </lightning-tabset>
+    <div style="width: 100%; text-align: right"><b><span style="float: left">Total Weight: {generalWeight.data}</span></b>
+    <button name="unloadButton" class="unloadButton" onclick={unloadItems}>UNLOAD {activetabContent} ITEMS</button>
+    <button name="loadButton" class="loadButton" onclick={recieveItems}>LOAD MORE {activetabContent} ITEMS</button>
+    </div>
+    
   </template>

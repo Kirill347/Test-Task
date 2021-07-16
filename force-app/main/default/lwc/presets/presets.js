@@ -1,9 +1,10 @@
 import { LightningElement, track, wire, api } from 'lwc';
 import getPresets from '@salesforce/apex/ItemDataService.getPresets';
+import getPresetLabels from '@salesforce/apex/ItemDataService.getPresetLabels';
 import ItemMC from '@salesforce/messageChannel/ItemMessageChannel__c';
 import PresetsMC from '@salesforce/messageChannel/PresetsMC__c';
 import { refreshApex } from '@salesforce/apex';
-import { updateRecord } from 'lightning/uiRecordApi';
+import { updateRecord, createRecord } from 'lightning/uiRecordApi';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import {
     subscribe,
@@ -11,6 +12,7 @@ import {
     MessageContext,
     APPLICATION_SCOPE
 } from 'lightning/messageService';
+import PRESET_OBJECT from '@salesforce/schema/Preset__c';
 import BOOTS from '@salesforce/schema/Preset__c.Boots__c';
 import ARMOR_CHEST from '@salesforce/schema/Preset__c.Armor_Chest__c';
 import ID_FIELD from '@salesforce/schema/Preset__c.Id';
@@ -21,24 +23,37 @@ import RING2 from '@salesforce/schema/Preset__c.Ring2__c';
 import WEAPON1 from '@salesforce/schema/Preset__c.Weapon1__c';
 import WEAPON2 from '@salesforce/schema/Preset__c.Weapon2__c';
 import TROUSERS from '@salesforce/schema/Preset__c.Trousers__c';
-const ARMOR = 'ARMOR'
-const WEAPON = 'WEAPON'
-const CONSUMABLE = 'CONSUMABLE'
-const JEWELLERY = 'JEWELLERY'
-const OTHER = 'OTHER'
+import armor from '@salesforce/label/c.Armor_Object_Label';
+import weapon from '@salesforce/label/c.Weapon_Object_Label';
+import consumable from '@salesforce/label/c.Consumable_Object_Label';
+import jewellery from '@salesforce/label/c.Jewellery_Object_Label';
+import other from '@salesforce/label/c.Other_Item_Object_Label';
 export default class Presets extends LightningElement {
     constants = {
-        armor: ARMOR,
-        weapon: WEAPON,
-        consumable: CONSUMABLE,
-        jewellery: JEWELLERY,
-        other: OTHER
+        armor,
+        weapon,
+        consumable,
+        jewellery,
+        other
+    }
+
+    @wire(getPresetLabels)
+    wiredPresetLabels(data,error){
+        if (data) {
+            let labels = data["data"];
+            for (var key in labels) {
+              this.constants[key] = labels[key];
+            }
+          } else if(error){
+            console.log('An error occurred while extracting characteristics labels.');
+          }
     }
 
     @wire(getPresets)
     presets;
 
-    activePreset;
+    @track
+    activePresetIndex;
 
     @track
     error;
@@ -60,12 +75,30 @@ export default class Presets extends LightningElement {
         this.defineActivePreset();
     }
 
+    /*createPreset(){
+        const fields = {};
+        const recordInput = { apiName: PRESET_OBJECT.objectApiName, fields };
+        createRecord(recordInput)
+            .then(() => {
+                return refreshApex(this.presets);
+            })
+            .catch(error => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Error creating record',
+                        message: error.body.message,
+                        variant: 'error',
+                    }),
+                );
+            });
+    }*/
+
     defineActivePreset() {
         let activePresetId = this.template.querySelector('lightning-tabset').activeTabValue;
         let data = this.presets.data;
         for (let i = 0; i < data.length; i++) {
             if (data[i].Id === activePresetId) {
-                this.activePreset = data[i];
+                this.activePresetIndex = i;
             }
         }
     }
@@ -86,63 +119,84 @@ export default class Presets extends LightningElement {
     }
 
     handleMessage(message) {
-        console.log('Presets. Type = ' + message.type + ', item = ' + message.presetItem);
+        const isPresetItem = message.isPresetItem;
         const presetItem = message.presetItem;
         const fields = {};
-        fields[ID_FIELD.fieldApiName] = this.activePreset.Id;
-        if (message.type === ARMOR) {
+        let presets = this.presets.data;
+        let index = this.activePresetIndex;
+        fields[ID_FIELD.fieldApiName] = presets[index].Id;
+        if (message.type === armor) {
             switch (presetItem.Type__c) {
                 case 'Helmet':
-                        fields[HELMET.fieldApiName] = presetItem.Id;
+                    fields[HELMET.fieldApiName] = isPresetItem ? '' : presetItem.Id;
                     break;
                 case 'Chest Armor':
-                        fields[ARMOR_CHEST.fieldApiName] = presetItem.Id;
+                    fields[ARMOR_CHEST.fieldApiName] = isPresetItem ? '' : presetItem.Id;
                     break;
                 case 'Gloves':
-                        fields[GLOVES.fieldApiName] = presetItem.Id;
+                    fields[GLOVES.fieldApiName] = isPresetItem ? '' : presetItem.Id;
                     break;
                 case 'Trousers':
-                    let apiName = TROUSERS.fieldApiName;
-                    console.log('api name: ' + this.activePreset[apiName]);
-                        fields[TROUSERS.fieldApiName] = presetItem.Id;
+                    fields[TROUSERS.fieldApiName] = isPresetItem ? '' : presetItem.Id;
                     break;
                 case 'Boots':
-                        fields[BOOTS.fieldApiName] = presetItem.Id;
+                    fields[BOOTS.fieldApiName] = isPresetItem ? '' : presetItem.Id;
                     break;
             }
-        } else if (message.type === WEAPON) {
-            if (presetItem.Type__c === 'Two-Handed') {
-                    fields[WEAPON1.fieldApiName] = presetItem.Id;
-                    fields[WEAPON2.fieldApiName] = '';
+        } else if (message.type === weapon) {
+            if (presetItem.Type__c == 'Two-Handed') {
+                fields[WEAPON1.fieldApiName] = presetItem.Id;
+                fields[WEAPON2.fieldApiName] = '';
             } else {
-                console.log('Weapon 1 type: ' + this.activePreset.Weapon1__r.Type__c)
-                if ((this.activePreset.Weapon1__c == undefined) ||
-                    (this.activePreset.Weapon1__c != undefined && this.activePreset.Weapon2__c != undefined) ||
-                    (this.activePreset.Weapon1__r.Type__c == 'Two-Handed')) {
-                        fields[WEAPON1.fieldApiName] = presetItem.Id;
+                if ((presets[index].Weapon1__c == undefined) ||
+                    (presets[index].Weapon1__c != undefined && presets[index].Weapon2__c != undefined && presets[index].Weapon2__c != presetItem.Id) ||
+                    (presets[index].Weapon1__r.Type__c == 'Two-Handed')) {
+                    if (presets[index].Weapon2__c == presetItem.Id) {
+                        fields[WEAPON1.fieldApiName] = '';
+                        fields[WEAPON2.fieldApiName] = '';
+                    } else {
+                        fields[WEAPON1.fieldApiName] = isPresetItem ? '' : presetItem.Id;
+                    }
                 } else {
-                    fields[WEAPON2.fieldApiName] = presetItem.Id;
+                    if (presets[index].Weapon1__c == presetItem.Id) {
+                        fields[WEAPON1.fieldApiName] = '';
+                        fields[WEAPON2.fieldApiName] = '';
+                    } else {
+                        fields[WEAPON2.fieldApiName] = isPresetItem ? '' : presetItem.Id;
+                    }
                 }
             }
-        } else if (message.type === JEWELLERY) {
-            if ((this.activePreset.Ring1__c == undefined) ||
-                (this.activePreset.Ring1__c != undefined && this.activePreset.Ring2__c != undefined)) {
-                fields[RING1.fieldApiName] = presetItem.Id;
+        } else if (message.type === jewellery) {
+            if ((presets[index].Ring1__c == undefined) ||
+                (presets[index].Ring1__c != undefined && presets[index].Ring2__c != undefined && presets[index].Ring2__c != presetItem.Id)) {
+                if (presets[index].Ring2__c == presetItem.Id) {
+                    fields[RING1.fieldApiName] = '';
+                    fields[RING2.fieldApiName] = '';
+                } else {
+                    fields[RING1.fieldApiName] = isPresetItem ? '' : presetItem.Id;
+                }
             } else {
-                fields[RING2.fieldApiName] = presetItem.Id;
+                if (presets[index].Ring1__c == presetItem.Id) {
+                    fields[RING1.fieldApiName] = '';
+                    fields[RING2.fieldApiName] = '';
+                } else {
+                    fields[RING2.fieldApiName] = isPresetItem ? '' : presetItem.Id;
+                }
+
             }
         }
         this.updateActivePreset(fields);
     }
 
     updateActivePreset(fields) {
-        for(let field in fields){
-           if(field != ID_FIELD.fieldApiName) {
-               if(this.activePreset[field] == fields[field]){
-                   fields[field] = '';
-               }
-           }
+        for (let field in fields) {
+            if (field != ID_FIELD.fieldApiName) {
+                if (this.presets.data[this.activePresetIndex][field] == fields[field]) {
+                    fields[field] = '';
+                }
+            }
         }
+
         const recordInput = { fields };
 
         updateRecord(recordInput)
@@ -157,7 +211,6 @@ export default class Presets extends LightningElement {
                     })
                 );
             });
-        this.defineActivePreset();
     }
 
     connectedCallback() {

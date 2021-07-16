@@ -1,3 +1,32 @@
 .grid-tab{
-    background-color:black;
+    background-image:url('/resource/backgrounds/background9.jpg');
+    opacity:0.9;
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+.loadButton{
+    font-family: cursive;
+    background-color: #c4500d;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin:1px;
+    border-radius: 0 50px 50px 0;
+}
+.unloadButton{
+    font-family: cursive;
+    background-color: #c4500d;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin:1px;
+    border-radius: 50px 0 0 50px;
 }

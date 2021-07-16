@@ -26,7 +26,7 @@ export default class ItemTile extends LightningElement {
   get backgroundStyle() {
     if (this.item != undefined) {
       const itemPicture = this.item.Picture__c;
-      return `background-image:url(${itemPicture})`;
+      return `background-image:url(${itemPicture});`;
     }
   }
 
@@ -42,7 +42,7 @@ export default class ItemTile extends LightningElement {
   selectItem() {
     if (this.item) {
       const itemselectEvent = new CustomEvent('itemselect', {
-        detail: { item: this.item, type: this.type }
+        detail: { item: this.item, type: this.type , isPresetItem: this.isPresetItem}
       });
       this.dispatchEvent(itemselectEvent);
     }
