@@ -7,6 +7,9 @@
     </lightningMessageFields>
     <lightningMessageFields>
         <fieldName>type</fieldName>
-    </lightningMessageFields>        
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>isPresetItem</fieldName>
+    </lightningMessageFields>
     <masterLabel>SampleMessageChannel</masterLabel>
 </LightningMessageChannel>
