@@ -3,7 +3,7 @@
     <fullName>Effect__c</fullName>
     <externalId>false</externalId>
     <label>Effect</label>
-    <length>50</length>
+    <length>100</length>
     <required>true</required>
     <trackTrending>false</trackTrending>
     <type>Text</type>
