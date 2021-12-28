@@ -297,7 +297,7 @@ public with sharing class Utils {
         unloadOtherItemsStatusCode = response.getStatusCode();
     }
 
-    public static testCICD() {
+    public static void testCICD() {
         System.debug('Test');
     }
 }
