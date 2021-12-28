@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Armor_Chest__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Armor Chest</label>
+        <referenceTo>Armor__c</referenceTo>
+        <relationshipLabel>Presets (Armor Chest)</relationshipLabel>
+        <relationshipName>Armor_Chest_Preset</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Boots__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Boots</label>
+        <referenceTo>Armor__c</referenceTo>
+        <relationshipLabel>Presets (Boots)</relationshipLabel>
+        <relationshipName>Boots_Preset</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>General_Magical_Protection__c</fullName>
+        <externalId>false</externalId>
+        <formula>Armor_Chest__r.Magical_protection__c +  Gloves__r.Magical_protection__c +  Boots__r.Magical_protection__c +  Helmet__r.Magical_protection__c +  Trousers__r.Magical_protection__c +  Ring1__r.Magical_Protection__c +  Ring2__r.Magical_Protection__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>General Magical Protection</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>General_Physical_Protection__c</fullName>
+        <externalId>false</externalId>
+        <formula>Armor_Chest__r.Physical_protection__c +  Boots__r.Physical_protection__c +  Gloves__r.Physical_protection__c +  Helmet__r.Physical_protection__c +  Trousers__r.Physical_protection__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>General Physical Protection</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gloves__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Gloves</label>
+        <referenceTo>Armor__c</referenceTo>
+        <relationshipLabel>Presets</relationshipLabel>
+        <relationshipName>Gloves_Preset</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Helmet__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Helmet</label>
+        <referenceTo>Armor__c</referenceTo>
+        <relationshipLabel>Presets (Helmet)</relationshipLabel>
+        <relationshipName>Helmet_Preset</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ring1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Ring 1</label>
+        <referenceTo>Jewellery__c</referenceTo>
+        <relationshipLabel>Presets (Ring1)</relationshipLabel>
+        <relationshipName>Ring1_Preset</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ring2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Ring 2</label>
+        <referenceTo>Jewellery__c</referenceTo>
+        <relationshipLabel>Presets (Ring2)</relationshipLabel>
+        <relationshipName>Ring2_Preset</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Trousers__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Trousers</label>
+        <referenceTo>Armor__c</referenceTo>
+        <relationshipLabel>Presets (Trousers)</relationshipLabel>
+        <relationshipName>Presets</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Weapon1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Weapon 1</label>
+        <referenceTo>Weapon__c</referenceTo>
+        <relationshipLabel>Presets (Weapon1)</relationshipLabel>
+        <relationshipName>Weapon1_Preset</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Weapon2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Weapon 2</label>
+        <referenceTo>Weapon__c</referenceTo>
+        <relationshipLabel>Presets (Weapon2)</relationshipLabel>
+        <relationshipName>Weapon2_Preset</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Preset</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Preset{0}</displayFormat>
+        <label>Preset Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Presets</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>ArmorVRule</fullName>
+        <active>true</active>
+        <errorConditionFormula>!ISPICKVAL(Armor_Chest__r.Type__c, &apos;Chest Armor&apos;) &amp;&amp;  Armor_Chest__c!=&apos;&apos;</errorConditionFormula>
+        <errorDisplayField>Armor_Chest__c</errorDisplayField>
+        <errorMessage>Chest Armor is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BootsVRule</fullName>
+        <active>true</active>
+        <errorConditionFormula>!ISPICKVAL( Boots__r.Type__c , &apos;Boots&apos;) &amp;&amp;  Boots__c!=&apos;&apos;</errorConditionFormula>
+        <errorDisplayField>Boots__c</errorDisplayField>
+        <errorMessage>Boots are required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>GlovesVRule</fullName>
+        <active>true</active>
+        <errorConditionFormula>!ISPICKVAL(Gloves__r.Type__c, &apos;Gloves&apos;) &amp;&amp; Gloves__c != &apos;&apos;</errorConditionFormula>
+        <errorDisplayField>Gloves__c</errorDisplayField>
+        <errorMessage>Gloves are required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>HelmetVRule</fullName>
+        <active>true</active>
+        <errorConditionFormula>!ISPICKVAL( Helmet__r.Type__c , &apos;Helmet&apos;) &amp;&amp; Helmet__c != &apos;&apos;</errorConditionFormula>
+        <errorMessage>Helmet is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TrousersVRule</fullName>
+        <active>true</active>
+        <errorConditionFormula>!ISPICKVAL( Trousers__r.Type__c , &apos;Trousers&apos;) &amp;&amp; Trousers__c != &apos;&apos;</errorConditionFormula>
+        <errorDisplayField>Trousers__c</errorDisplayField>
+        <errorMessage>Trousers is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TwoHandedWeaponVRule</fullName>
+        <active>true</active>
+        <errorConditionFormula>(ISPICKVAL(Weapon1__r.Type__c, &apos;Two-Handed&apos;) &amp;&amp; Weapon2__c !=&apos;&apos;)
+|| (ISPICKVAL(Weapon2__r.Type__c, &apos;Two-Handed&apos;) &amp;&amp; Weapon1__c !=&apos;&apos;)</errorConditionFormula>
+        <errorMessage>Only one Two-Handed Weapon</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
