@@ -43,7 +43,7 @@ jobs:
       #Create scratch org
       - name: 'Create scratch org'
         env:
-            USERNAME: ${{ secrets.SALESFORCEPRODUSERNAME }}
+          USERNAME: ${{ secrets.SALESFORCEPRODUSERNAME }}
         run: 'sfdx force:org:create -f config/project-scratch-def.json -a scratch-org -s -d 1 -v $USERNAME'
 
       #Deploy source to scratch org
