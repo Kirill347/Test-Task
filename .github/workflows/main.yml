@@ -48,7 +48,9 @@ jobs:
 
       #Deploy source to scratch org
       - name: 'Deploy source to scratch org'
-        run: 'sfdx force:source:push'
+        env:
+          USERNAME: ${{ secrets.SALESFORCEPRODUSERNAME }}
+        run: 'sfdx force:source:push --targetusername $USERNAME'
 
       # Assign permissionset
       - name: 'Assign permission set to default user'
